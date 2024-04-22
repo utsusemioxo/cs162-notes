@@ -19,7 +19,7 @@
 
 ## The Illusion of Multiple Processors
 - Assume a single processor (core). How to we provide the illusion of multiple processors?
-	- Multiplex in time! （时间分割）
+	- Multiplex in time! (or [[Multiplexing]])（时间分割）
 	- Threads are *virtual cores*
 	- Contents of virtual core (thread): 
 		- Program counter, stack pointer
