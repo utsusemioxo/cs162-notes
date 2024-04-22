@@ -32,4 +32,17 @@
 	- Example: prevent one user from stealing secret information from another user
 
 ## Base and Bond (B&B) protection
+a simple protect in early days using Base and Bond register.
 
+![](base_and_bound_01.svg)
+We use Base register and Bound register to check if the program address is valid. If it's valid, the code can continue to run.
+
+> How expensive to do this?
+> - We can do base and bound check in parallel.
+
+> How to change base and bound?
+> - Only If I'm in kernel mode, can I change base and bound. So Only operating system can modify it, so it can protect program.
+
+another implementation look like this:
+![](base_and_bound_02.svg)
+TBD
