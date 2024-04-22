@@ -44,5 +44,26 @@ We use Base register and Bound register to check if the program address is valid
 > - Only If I'm in kernel mode, can I change base and bound. So Only operating system can modify it, so it can protect program.
 
 another implementation look like this:
-![](base_and_bound_02.svg)
-TBD
+![](base_and_bound_02.svg) 第二种是一种硬件的relocation，不需要软件来实现地址重定位。
+Bound is the size rather an address.
+
+
+- This is Hardware relocation (The second way)
+- Can the program touch OS? NO
+- Can it touch other programs? NO
+
+## Another idea: Address Space Translation
+### What is address space translation?
+>Program operates in an address space that is distinct from the physical memory space of the machine.
+
+![](address_space_translation_01.svg)
+### Paged Virtual Address Space
+- What if we break the entire virtual address space into equal size chunks (i.e., pages) have a base for each?
+- Treat memory as page size frames and put any page into any frame...
+![](paged_virtual_address_01.svg)
+- Instructions operate on virtual address
+	- Instruction address, load/store data address
+- Translated to a physical address (or Page Fault) through a Page Table by the hardware
+- Any Page of address space can be in any (page sized) frame in memory
+	- Or not-present (access generates a page fault)
+- Special register holds page table base address (of the process)
